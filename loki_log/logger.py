@@ -11,6 +11,7 @@ LOG_LEVEL_DEBUG = "DEBUG"
 # Dynamically determine the base directory (the directory where this script resides or its parent)
 BASE_DIR = os.getcwd()
 
+
 def log_message(message: str, level: str = LOG_LEVEL_INFO, **kwargs):
     """
     Logs a structured message with optional contextual key-value pairs.
@@ -40,5 +41,6 @@ def log_message(message: str, level: str = LOG_LEVEL_INFO, **kwargs):
     extras_str = f" {extras}" if extras else ""
 
     # Final log output
-    print(f'time={now} level={level} source={relative_path}:{line_number} msg="{message}"{extras_str}')
-
+    print(
+        f'time={now} level={level} source={relative_path}:{line_number} msg="{message}"{extras_str}'
+    )
