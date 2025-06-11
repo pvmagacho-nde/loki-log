@@ -1,5 +1,5 @@
 """
-Version 0.1.0
+Version 0.1.1
 """
 import inspect
 import datetime
@@ -15,7 +15,7 @@ LOG_LEVEL_DEBUG = "DEBUG"
 BASE_DIR = os.getcwd()
 
 
-def log_message(message: str, level: str = LOG_LEVEL_INFO, **kwargs):
+def log_message(message: str, frame, level: str = LOG_LEVEL_INFO, **kwargs):
     """
     Logs a structured message with optional contextual key-value pairs.
 
@@ -24,7 +24,6 @@ def log_message(message: str, level: str = LOG_LEVEL_INFO, **kwargs):
     - level (str): The log level (INFO, WARN, ERROR, DEBUG). Defaults to INFO.
     - **kwargs: Optional key-value pairs to include in the log line.
     """
-    frame = inspect.currentframe().f_back
     full_path = os.path.abspath(inspect.getfile(frame))
 
     # Use current working directory to get relative path for source
@@ -57,7 +56,8 @@ def debug(message, **kwargs):
     - message (str): The main log message.
     - **kwargs: Optional key-value pairs to include in the log line.
     """
-    log_message(message=message, level=LOG_LEVEL_DEBUG, kwargs=kwargs)
+    frame = inspect.currentframe().f_back
+    log_message(message=message, frame=frame, level=LOG_LEVEL_DEBUG, kwargs=kwargs)
 
 
 def info(message, **kwargs):
@@ -68,7 +68,8 @@ def info(message, **kwargs):
     - message (str): The main log message.
     - **kwargs: Optional key-value pairs to include in the log line.
     """
-    log_message(message=message, level=LOG_LEVEL_INFO, kwargs=kwargs)
+    frame = inspect.currentframe().f_back
+    log_message(message=message, frame=frame, level=LOG_LEVEL_INFO, kwargs=kwargs)
 
 
 def warn(message, **kwargs):
@@ -79,7 +80,8 @@ def warn(message, **kwargs):
     - message (str): The main log message.
     - **kwargs: Optional key-value pairs to include in the log line.
     """
-    log_message(message=message, level=LOG_LEVEL_WARN, kwargs=kwargs)
+    frame = inspect.currentframe().f_back
+    log_message(message=message, frame=frame, level=LOG_LEVEL_WARN, kwargs=kwargs)
 
 
 def error(message, **kwargs):
@@ -90,4 +92,5 @@ def error(message, **kwargs):
     - message (str): The main log message.
     - **kwargs: Optional key-value pairs to include in the log line.
     """
-    log_message(message=message, level=LOG_LEVEL_ERROR, kwargs=kwargs)
+    frame = inspect.currentframe().f_back
+    log_message(message=message, frame=frame, level=LOG_LEVEL_ERROR, kwargs=kwargs)
