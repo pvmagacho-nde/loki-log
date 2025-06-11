@@ -47,3 +47,47 @@ def log_message(message: str, level: str = LOG_LEVEL_INFO, **kwargs):
     print(
         f'time={now} level={level} source={relative_path}:{line_number} msg="{message}"{extras_str}'
     )
+
+
+def debug(message, **kwargs):
+    """
+    Logs a structured debug message with optional contextual key-value pairs.
+
+    Parameters:
+    - message (str): The main log message.
+    - **kwargs: Optional key-value pairs to include in the log line.
+    """
+    log_message(message=message, level=LOG_LEVEL_DEBUG, kwargs=kwargs)
+
+
+def info(message, **kwargs):
+    """
+    Logs a structured info message with optional contextual key-value pairs.
+
+    Parameters:
+    - message (str): The main log message.
+    - **kwargs: Optional key-value pairs to include in the log line.
+    """
+    log_message(message=message, level=LOG_LEVEL_INFO, kwargs=kwargs)
+
+
+def warn(message, **kwargs):
+    """
+    Logs a structured warning message with optional contextual key-value pairs.
+
+    Parameters:
+    - message (str): The main log message.
+    - **kwargs: Optional key-value pairs to include in the log line.
+    """
+    log_message(message=message, level=LOG_LEVEL_WARN, kwargs=kwargs)
+
+
+def error(message, **kwargs):
+    """
+    Logs a structured error message with optional contextual key-value pairs.
+
+    Parameters:
+    - message (str): The main log message.
+    - **kwargs: Optional key-value pairs to include in the log line.
+    """
+    log_message(message=message, level=LOG_LEVEL_ERROR, kwargs=kwargs)
