@@ -57,7 +57,7 @@ def debug(message, **kwargs):
     - **kwargs: Optional key-value pairs to include in the log line.
     """
     frame = inspect.currentframe().f_back
-    log_message(message=message, frame=frame, level=LOG_LEVEL_DEBUG, kwargs=kwargs)
+    log_message(message=message, frame=frame, level=LOG_LEVEL_DEBUG, **kwargs)
 
 
 def info(message, **kwargs):
@@ -69,7 +69,7 @@ def info(message, **kwargs):
     - **kwargs: Optional key-value pairs to include in the log line.
     """
     frame = inspect.currentframe().f_back
-    log_message(message=message, frame=frame, level=LOG_LEVEL_INFO, kwargs=kwargs)
+    log_message(message=message, frame=frame, level=LOG_LEVEL_INFO, **kwargs)
 
 
 def warn(message, **kwargs):
@@ -81,7 +81,7 @@ def warn(message, **kwargs):
     - **kwargs: Optional key-value pairs to include in the log line.
     """
     frame = inspect.currentframe().f_back
-    log_message(message=message, frame=frame, level=LOG_LEVEL_WARN, kwargs=kwargs)
+    log_message(message=message, frame=frame, level=LOG_LEVEL_WARN, **kwargs)
 
 
 def error(message, **kwargs):
@@ -93,4 +93,4 @@ def error(message, **kwargs):
     - **kwargs: Optional key-value pairs to include in the log line.
     """
     frame = inspect.currentframe().f_back
-    log_message(message=message, frame=frame, level=LOG_LEVEL_ERROR, kwargs=kwargs)
+    log_message(message=message, frame=frame, level=LOG_LEVEL_ERROR, **kwargs)
